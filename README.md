@@ -18,16 +18,16 @@
 
 # Quick View
 #### Sign Up / Sign In 
-![Sign Up/In](https://github.com/MaorS/IOS-Chat/blob/master/media/signin-up.gif)
+<img src="https://github.com/MaorS/IOS-Chat/blob/master/media/signin-up.gif" width="300">
 
 #### Edit Profile
-![Edit Profile](https://github.com/MaorS/IOS-Chat/blob/master/media/edit-profile.gif)
+<img src="https://github.com/MaorS/IOS-Chat/blob/master/media/edit-profile.gif" width="500">
 
 #### Sending and receiving
-![Sending and receiving messages](https://github.com/MaorS/IOS-Chat/blob/master/media/send-messages.gif)
+<img src="https://github.com/MaorS/IOS-Chat/blob/master/media/send-messages.gif" width="500">
 
 #### Pull to Fetch Older messages
-![Pull to Fetch Older messages](https://github.com/MaorS/IOS-Chat/blob/master/media/pull-to-fetch.gif)
+<img src="https://github.com/MaorS/IOS-Chat/blob/master/media/pull-to-fetch.gif" width="300">
 
 
 # License
