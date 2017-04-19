@@ -61,7 +61,7 @@ class DBManager{
     var videoStorageRef : FIRStorageReference{
         return storageRef.child(Constants.VIDEO_STORAGE)
     }
-    
+
     // MARK: - Save User
     func saveUser(withID : String, email : String, password : String ){
         

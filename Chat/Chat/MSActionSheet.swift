@@ -230,7 +230,6 @@ class MSActionSheet: UIAlertController,  UIImagePickerControllerDelegate, UINavi
             url = videoURL
         }
         handler()
-        print("reset")
         reset()
     }
     

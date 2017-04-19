@@ -97,25 +97,22 @@ class MessagesManager {
         
         // current user
         let currentUser = AuthManager.User.self
-        
+
         DispatchQueue.global().async {
-            
+
             // get 5 last messages
             DBManager.manager.messagesRef.child(currentUser.id.value).child(friend.id)
-                .queryLimited(toLast: 5).observe(.childAdded, with: { (snapshot) in
-                    // pass data to observeHandler
-                    self.observeHandler(snapshot: snapshot)
+                .queryLimited(toLast: 5).observeSingleEvent(of: .value, with: { (snapshot) in
+                  
+                    for child in (snapshot.children)  {
+                        let snap = child as! FIRDataSnapshot    // each child is a snapshot
+                        self.observeHandler(snapshot: snap)
+                    }
+                    // when finish observing first messages, start observing 
+                    // only to new messages sent
+                     self.observeMessages(of: friend)
                 })
         }
-        
-        // After 5 secounds, stop the observer
-        DispatchQueue.global().asyncAfter(deadline: .now() + 5, execute: {
-            DBManager.manager.messagesRef.child(currentUser.id.value).child(friend.id).removeAllObservers()
-            
-            // listen only to friend messages
-            self.observeMessages(of: friend)
-        })
-        
     }
     
     
@@ -127,7 +124,7 @@ class MessagesManager {
             
             // listen for A new child node added.
             DBManager.manager.messagesRef.child(currentUser.id.value).child(friend.id)
-                .queryLimited(toLast: 5).queryOrdered(byChild: Constants.SENDER_ID)
+                .queryLimited(toLast: 1).queryOrdered(byChild: Constants.SENDER_ID)
                 .queryEqual(toValue: friend.id).observe(.childAdded){[weak self] (snapshot : FIRDataSnapshot) in
                     
                     self?.observeHandler(snapshot: snapshot)
@@ -252,19 +249,16 @@ class MessagesManager {
         let currentUser = AuthManager.User.self
         let firstMessage = currentMessages.first?.date ?? Date()
         
-        // get yesterday's date
-        let tempCalendar = Calendar.current
-        let alteredDate = tempCalendar.date(byAdding: .day, value: fetchMoreCounter, to: firstMessage)
         
         // listen for a single event, get the messages from yesterday until the first
         // message in current device
         
         DispatchQueue.global().sync {
             DBManager.manager.messagesRef.child(currentUser.id.value).child(friend.id)
-                .queryOrdered(byChild: Constants.SENT_DATE).queryStarting(atValue: Int((alteredDate?.timeIntervalSince1970)!))
-                .queryEnding(atValue: Int(firstMessage.timeIntervalSince1970)).observeSingleEvent(of: .value, with: { (snapshot) in
+                .queryOrdered(byChild: Constants.SENT_DATE).queryLimited(toLast: 5)
+                .queryEnding(atValue: Int(firstMessage.timeIntervalSince1970))
+                .observeSingleEvent(of: .value, with: { (snapshot) in
                     
-                    print("fetch more : \(fetchMoreCounter)")
                     var historyMSGS = [MSMessage]()
                     
                     snapshotLoop : for child in (snapshot.children)  {

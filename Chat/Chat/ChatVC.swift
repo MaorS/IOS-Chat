@@ -46,7 +46,6 @@ class ChatVC: JSQMessagesViewController, MessageReceivedDelegate {
         super.viewWillAppear(animated)
         // get messages
         MessagesManager.manager.firstTimeMessages(of: receiver!)
-        // MessagesManager.manager.observeMessages(of: receiver!)
         view.layoutIfNeeded()
     }
     
