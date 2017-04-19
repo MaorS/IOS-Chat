@@ -20,7 +20,6 @@
 		E1CD50121E99043D006FB0CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CD50101E99043D006FB0CE /* Main.storyboard */; };
 		E1CD50141E99043D006FB0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1CD50131E99043D006FB0CE /* Assets.xcassets */; };
 		E1CD50171E99043D006FB0CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1CD50151E99043D006FB0CE /* LaunchScreen.storyboard */; };
-		E1CD50211E9907DF006FB0CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1CD50201E9907DF006FB0CE /* GoogleService-Info.plist */; };
 		E1E06EAA1E9B75A100D4C2B6 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E06EA91E9B75A100D4C2B6 /* ChatVC.swift */; };
 		E1E06EAC1E9B860300D4C2B6 /* MSActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E06EAB1E9B860300D4C2B6 /* MSActionSheet.swift */; };
 		E1EEE4301E9A268100BCCD6B /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EEE42F1E9A268100BCCD6B /* SignInVC.swift */; };
@@ -47,7 +46,6 @@
 		E1CD50131E99043D006FB0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1CD50161E99043D006FB0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1CD50181E99043D006FB0CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1CD50201E9907DF006FB0CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1E06EA91E9B75A100D4C2B6 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		E1E06EAB1E9B860300D4C2B6 /* MSActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSActionSheet.swift; sourceTree = "<group>"; };
 		E1EEE42F1E9A268100BCCD6B /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				E1CD50131E99043D006FB0CE /* Assets.xcassets */,
 				E1CD50151E99043D006FB0CE /* LaunchScreen.storyboard */,
 				E1CD50181E99043D006FB0CE /* Info.plist */,
-				E1CD50201E9907DF006FB0CE /* GoogleService-Info.plist */,
 			);
 			name = Supporting;
 			sourceTree = "<group>";
@@ -222,7 +219,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1CD50171E99043D006FB0CE /* LaunchScreen.storyboard in Resources */,
-				E1CD50211E9907DF006FB0CE /* GoogleService-Info.plist in Resources */,
 				E1CD50141E99043D006FB0CE /* Assets.xcassets in Resources */,
 				E1CD50121E99043D006FB0CE /* Main.storyboard in Resources */,
 			);

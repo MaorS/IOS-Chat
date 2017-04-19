@@ -244,11 +244,10 @@ class MessagesManager {
     }
     
     // MARK: - Fetch more messages (old messages)
-    func fetchMore(of friend : Contact,currentMessages : [MSMessage],fetchMoreCounter : Int, history completion : @escaping ((_ : [MSMessage]?) -> Void )){
+    func fetchMore(of friend : Contact,currentMessages : [MSMessage], history completion : @escaping ((_ : [MSMessage]?) -> Void )){
         
         let currentUser = AuthManager.User.self
         let firstMessage = currentMessages.first?.date ?? Date()
-        
         
         // listen for a single event, get the messages from yesterday until the first
         // message in current device

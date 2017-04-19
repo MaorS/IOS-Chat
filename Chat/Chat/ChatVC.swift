@@ -384,7 +384,6 @@ class ChatVC: JSQMessagesViewController, MessageReceivedDelegate {
         return kJSQMessagesCollectionViewCellLabelHeightDefault;
     }
     
-    fileprivate var fetchMoreCounter : Int = -1
     
     // MARK : - Fetch / Load more messages
     func loadMore(){
@@ -395,7 +394,7 @@ class ChatVC: JSQMessagesViewController, MessageReceivedDelegate {
             return
         }
         
-        MessagesManager.manager.fetchMore(of: receiver!, currentMessages : messages, fetchMoreCounter: fetchMoreCounter){ (history) in
+        MessagesManager.manager.fetchMore(of: receiver!, currentMessages : messages){ (history) in
             
             //Check if nil
             if history != nil && !(history?.isEmpty)! {
@@ -442,7 +441,6 @@ class ChatVC: JSQMessagesViewController, MessageReceivedDelegate {
                     self.collectionView.layoutIfNeeded()
                     self.collectionView.contentOffset = CGPoint(x: 0, y: self.collectionView.contentSize.height - oldBottomOffset)
                     
-                    
                     // Stop spinner
                     self.refreshControl?.endRefreshing()
                     self.finishReceivingMessage()
@@ -454,9 +452,5 @@ class ChatVC: JSQMessagesViewController, MessageReceivedDelegate {
                 self.refreshControl?.endRefreshing()
             }
         }
-        
-        self.fetchMoreCounter -= 1
     }
-    
-    
 }
